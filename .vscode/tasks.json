@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "2.0.0",
+    "configurations": [
+        // {
+        //     "type": "shell",
+        //     "name": "Install",
+        //     "command": "./gradlew install",
+        //     "windows": {
+        //         "command": ".\\gradlew install"
+        //     },
+        // }
+    ],
+    "tasks": [
+        {
+            "type": "shell",
+            "group": "build",
+            "command": "./gradlew",
+            "label": "gradlew (jar): Build cennos",
+            "detail": "$(tools) Compiles cennos.",
+            "args": [
+                "jar"
+            ],
+            "windows": {
+                "command": ".\\gradlew"
+            },
+        },
+        {
+            "type": "shell",
+            "group": "build",
+            "command": "./gradlew",
+            "label": "gradlew (install): Install cennos",
+            "detail": "$(tools) Compiles cennos and places it in the mods folder.",
+            "args": [
+                "install"
+            ],
+            "windows": {
+                "command": ".\\gradlew"
+            },
+        }
+    ]
+}

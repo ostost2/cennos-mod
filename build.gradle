@@ -20,6 +20,8 @@ ext{
     mindustryVersion = 'v145'
     jabelVersion = "93fde537c7"
     sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
+
+    installPath = "${System.getProperty("user.home")}/AppData/Roaming/Mindustry/mods"
 }
 
 //java 8 backwards compatibility flag
@@ -78,6 +80,14 @@ jar{
     from("assets/"){
         include "**"
     }
+}
+
+task install(type: Copy){
+    dependsOn "jar"
+
+    from file("$buildDir/libs/${project.archivesBaseName}Desktop.jar")
+    into file(installPath)
+    rename "${project.archivesBaseName}Desktop.jar", "${project.archivesBaseName}.jar"
 }
 
 task deploy(type: Jar){
